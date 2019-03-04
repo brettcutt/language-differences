@@ -243,8 +243,8 @@ var array = ['How', 'Are', 'doing', 'you', 'today!']
 array = array.reverse();
 console.log(array)
 // [ 'today!', 'you', 'doing', 'Are', 'How' ]
-//--------------------------------------------------------------------------- LENGTH
 
+//--------------------------------------------------------------------------- LENGTH
 // 20. LENGTH, get the amount of characters in a string or elements in an array
 var string = "hello"
 string = string.length
@@ -650,3 +650,138 @@ person.hello();
 
 // My name is: Judy Smith
 
+//--------------------------------------------------------------------------- ES6 Arrow functions
+// ES6 arrow function, You don't need the function keyword, the return keyword, and the curly brackets.
+
+var value = (x, y) => x * y;
+
+console.log(value(2, 4));
+
+// 8
+
+// -- same as
+
+function value(x, y) {
+    return x * y
+};
+
+console.log(value(2, 4));
+
+
+//--------------------------------------------------------------------------- ES6 if else
+// ES6 if else
+
+var value = 2;
+
+var result = value == 1 ? 'yes' : 'no';
+
+console.log(result)
+
+// 4
+
+//--------------------------------------------------------------------------- ES6 ForEach of
+// ES6 For in, Used to iterate over arrays. it works with break, continue, and return
+
+var array = ['these', 'are', 'the', 'words', 'within', 'the', 'array']
+
+for (var value of array) {
+    console.log(value);
+}
+
+// these
+// are
+// the
+// words
+// within
+// the
+// array
+
+//--------------------------------------------------------------------------- ES6 ForEach in
+// ES6 For in, Used to iterate over objects.
+
+var keyValueArray = { "name": "Brett", "age": 30 };
+
+for (var value in keyValueArray) {
+    console.log(value, keyValueArray[value]);
+}
+
+// name Brett
+// age 30
+
+//--------------------------------------------------------------------------- ES6 SET remove duplicates
+// ES6 SET, removes duplicates.
+
+var array = ['these', 'are', 'the', 'words', 'within', 'the', 'array', 'these', 'are', 'the', 'words', 'within', 'the', 'array'];
+
+var uniqueArray = new Set(array);
+console.log(uniqueArray);
+
+// Set { 'these', 'are', 'the', 'words', 'within', 'array' }
+
+//--------------------------------------------------------------------------- ES6 Find
+// ES6 Find, finds the first matching query.
+// find iterates over an array like a foreach loop.It takes a function as a parameter
+// and returns that functions condition statement.
+
+var array = ['these', 'are', 'the', 'words', 'within', 'the', 'array'];
+var first = array.find(myFunction);
+
+function myFunction(value) {
+    return value == 'are';
+}
+
+console.log(first);
+
+// are
+
+// ---- or
+
+var array = ['these', 'are', 'the', 'words', 'within', 'the', 'array'];
+
+var value = array.find(i => i == "the");
+
+console.log(value)
+
+// the
+
+//--------------------------------------------------------------------------- ES6 FindIndex
+// ES6 Index, finds the index position of given query.
+// returns the first value matching the given query.
+
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.findIndex(myFunction);
+
+function myFunction(value, index, array) {
+    return value > 18;
+    // console.log(value)
+    // console.log(index)
+    // console.log(array)
+}
+
+console.log(first)
+
+// 3
+
+// -- or
+
+var numbers = [4, 9, 16, 25, 29];
+
+var value = numbers.find(i => i > 18);
+
+console.log(value)
+
+// 25
+
+// -- or
+
+var numbers = [4, 9, 16, 25, 29];
+
+numbers.find(i => i > 18 ? console.log(i) : console.log('no'));
+
+// no
+// no
+// no
+// 25
+// 29
+
+console.log(Number.MIN_SAFE_INTEGER)
