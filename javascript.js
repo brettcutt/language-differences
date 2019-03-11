@@ -785,3 +785,8 @@ numbers.find(i => i > 18 ? console.log(i) : console.log('no'));
 // 29
 
 console.log(Number.MIN_SAFE_INTEGER)
+
+
+
+
+console.log([1, 2, 3] == [1, 2, 3])
