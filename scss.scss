@@ -1,0 +1,132 @@
+// Compile sass or scss to css
+// sass --watch main.sass
+// sass --watch main.scss
+
+
+//--------------------------------------------------------------------------- DEEP NESTING
+// DEEP NESTING
+// NOT GOOD CODING PRACTICE !!!
+
+.wrapper {
+    .main {
+        .container {
+            .article {
+                .post{
+                    p {
+                        font-size: 24px;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+   
+}
+
+//--------------------------------------------------------------------------- STYLE ELEMENT BY PARENT SELECTOR
+// STYLE ELEMENT BY PARENT SELECTOR
+// This targets the 'main' class for which has a parent element with a class of 'wrapper'. the ampersand '&' 
+// signifies the element is the parent. 
+
+.child {
+    .parent & {
+        background-color: blue;
+    }
+}
+
+//--------------------------------------------------------------------------- COMMON PROPERTIES
+// COMMON PROPERTIES
+
+p {
+    font: {
+        family: oswald;
+        size: 24px;
+        weight: bold;
+    }
+
+    text : {
+        align: center;
+        transform: uppercase;
+    }
+}
+
+//--------------------------------------------------------------------------- PLACE HOLDER
+// PLACE HOLDER, holds set properties in a variable. 
+%backgroundImage {
+    background: {
+        image: url(http://www.dfgdfgfdg.com);
+        size: cover;
+        position: center center;
+        repeat: no-repeat;
+    }
+}
+
+.container {
+    @extend %backgroundImage
+};
+
+//--------------------------------------------------------------------------- FUNCTION
+// FUNCTION
+
+@function pxToEm($value, $base) {
+    @return ($value / $base) + em;
+}
+
+h1 {
+    font-size: pxToEm(32,16);
+}
+
+// font-size: 2em;
+
+//--------------------------------------------------------------------------- VARIABLE
+// VARIABLE
+
+$blue: #0997d3;
+$width: 200px;
+$height: 500px;
+
+body {
+    background-color: $blue;
+}
+
+div {
+    width: $width;
+    height: $height;
+    border: 1px solid $blue;
+}
+
+//--------------------------------------------------------------------------- ARRAY AND FOREACH
+// ARRAY AND FOREACH
+
+$colors: (
+    black: #000000,
+    red: #e84610,
+    green: #bada55
+)
+
+@each $key, $value in $colors {
+    .item-#{$key} {
+        background-color: $value;
+    }
+}
+
+// .item-black {
+//     background-color: #000000;
+// .item-red {
+//     background-color: #e84610;
+// .item-green {
+//     background-color: #bada55;
+
+//--------------------------------------------------------------------------- VARIABLE IN CSS CLASS
+// VARIABLE IN CSS CLASS
+
+$class: container;
+
+div.#{$class} {
+    background-color: red;
+}
+
+// div.container {
+//    background-color: red;
+// }
